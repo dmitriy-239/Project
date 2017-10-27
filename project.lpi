@@ -32,7 +32,7 @@
     </RunParams>
     <Units Count="1">
       <Unit0>
-        <Filename Value="project.lpr"/>
+        <Filename Value="Project1.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
     </Units>
@@ -41,7 +41,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="project"/>
+      <Filename Value="Project1"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
