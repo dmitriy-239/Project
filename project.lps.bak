@@ -6,19 +6,21 @@
     <BuildModes Active="Default"/>
     <Units Count="2">
       <Unit0>
-        <Filename Value="Project1.pas"/>
+        <Filename Value="project.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="42" Y="7"/>
+        <CursorPos X="38" Y="142"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="C:\lazarus\fpc\3.0.0\source\rtl\inc\systemh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1141"/>
-        <CursorPos X="11" Y="1249"/>
+        <Filename Value="project.pas"/>
+        <UnitName Value="Project1"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="92"/>
+        <CursorPos X="38" Y="90"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit1>
     </Units>
     <JumpHistory HistoryIndex="-1"/>
