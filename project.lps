@@ -9,8 +9,8 @@
         <Filename Value="project.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="92"/>
-        <CursorPos X="30" Y="94"/>
+        <TopLine Value="183"/>
+        <CursorPos Y="189"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -18,37 +18,16 @@
     <JumpHistory HistoryIndex="-1"/>
   </ProjectSession>
   <Debugging>
-    <Watches Count="10">
+    <Watches Count="3">
       <Item1>
-        <Expression Value="k_points_pesh"/>
+        <Expression Value="s"/>
       </Item1>
       <Item2>
-        <Expression Value="k_points_legkmash"/>
+        <Expression Value="t2-t1"/>
       </Item2>
       <Item3>
-        <Expression Value="points_pesh"/>
+        <Expression Value="result*180/3.14"/>
       </Item3>
-      <Item4>
-        <Expression Value="points_legkmash"/>
-      </Item4>
-      <Item5>
-        <Expression Value="speed(x_old, y_old, time_old, x_new, y_new, time_new)"/>
-      </Item5>
-      <Item6>
-        <Expression Value="x_old"/>
-      </Item6>
-      <Item7>
-        <Expression Value="y_old"/>
-      </Item7>
-      <Item8>
-        <Expression Value="t2"/>
-      </Item8>
-      <Item9>
-        <Expression Value="t1"/>
-      </Item9>
-      <Item10>
-        <Expression Value="t2-t1"/>
-      </Item10>
     </Watches>
   </Debugging>
 </CONFIG>
