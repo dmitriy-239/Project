@@ -4,22 +4,51 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="2">
+    <Units Count="1">
       <Unit0>
         <Filename Value="project.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="38" Y="142"/>
+        <TopLine Value="92"/>
+        <CursorPos X="30" Y="94"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit0>
-      <Unit1>
-        <Filename Value="project.pas"/>
-        <EditorIndex Value="1"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
-      </Unit1>
     </Units>
     <JumpHistory HistoryIndex="-1"/>
   </ProjectSession>
+  <Debugging>
+    <Watches Count="10">
+      <Item1>
+        <Expression Value="k_points_pesh"/>
+      </Item1>
+      <Item2>
+        <Expression Value="k_points_legkmash"/>
+      </Item2>
+      <Item3>
+        <Expression Value="points_pesh"/>
+      </Item3>
+      <Item4>
+        <Expression Value="points_legkmash"/>
+      </Item4>
+      <Item5>
+        <Expression Value="speed(x_old, y_old, time_old, x_new, y_new, time_new)"/>
+      </Item5>
+      <Item6>
+        <Expression Value="x_old"/>
+      </Item6>
+      <Item7>
+        <Expression Value="y_old"/>
+      </Item7>
+      <Item8>
+        <Expression Value="t2"/>
+      </Item8>
+      <Item9>
+        <Expression Value="t1"/>
+      </Item9>
+      <Item10>
+        <Expression Value="t2-t1"/>
+      </Item10>
+    </Watches>
+  </Debugging>
 </CONFIG>
