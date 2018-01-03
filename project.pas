@@ -35,35 +35,86 @@ begin
 end; }
 
 var
-  points_pesh, points_legkmash, k_points_pesh, k_points_legkmash: integer;
+  points_pesh, points_legkmash, points_gruzmash, points_motoz, k_points_pesh, k_points_legkmash, k_points_gruzmash, k_points_motoz,
+    sum_points_pesh, sum_points_legkmash, sum_points_gruzmash, sum_points_motoz: integer;
   shir, dolg, x_old2, y_old2, time, time_old2, x_old, y_old, time_old, x_new, y_new, time_new: extended;
 procedure points_angle (angle: extended);
 begin
-  if (angle>=pi/2) and (angle<=pi) then points_pesh:=points_pesh+1;
+  if (angle>=0) and (angle<=pi) then points_pesh:=points_pesh+1;
   if (angle>=3*pi/4) and (angle<=pi) then points_legkmash:=points_legkmash+1;
+  if (angle>=pi/2) and (angle<=pi) then points_motoz:=points_motoz+1;
+  if (angle>=8*pi/9) and (angle<=pi) then points_gruzmash:=points_gruzmash+1;
 end;
 
 procedure points_speed (speed: extended); // в м/с
 begin
   if (speed>=0) and (speed<=2.22) then points_pesh:=points_pesh+1;
   if (speed>=0) and (speed<=61.11) then points_legkmash:=points_legkmash+1;
+  if (speed>=0) and (speed<=33.33) then points_gruzmash:=points_gruzmash+1;
+  if (speed>=0) and (speed<=83.33) then points_motoz:=points_motoz+1;
 end;
 
 procedure k_points_angle (angle: extended);
 begin
-  if (angle<=pi/4) then
+  if (angle>=0) and (angle<=3*pi/2) then
   begin
     k_points_pesh:=k_points_pesh+1;
     k_points_legkmash:=k_points_legkmash-1;
+    k_points_gruzmash:=k_points_gruzmash-1;
+    k_points_motoz:=k_points_motoz-1;
+  end;
+  if (angle>=pi/2) and (angle<=3*pi/4) then
+  begin
+    k_points_pesh:=k_points_pesh+1;
+    k_points_legkmash:=k_points_legkmash-1;
+    k_points_gruzmash:=k_points_gruzmash-1;
+    k_points_motoz:=k_points_motoz+1;
+  end;
+  if (angle>=3*pi/4) and (angle<=8*pi/9) then
+  begin
+    k_points_pesh:=k_points_pesh+1;
+    k_points_legkmash:=k_points_legkmash+1;
+    k_points_gruzmash:=k_points_gruzmash-1;
+    k_points_motoz:=k_points_motoz+1;
+  end;
+  if (angle>=8*pi/9) and (angle<=pi) then
+  begin
+    k_points_pesh:=k_points_pesh+1;
+    k_points_legkmash:=k_points_legkmash+1;
+    k_points_gruzmash:=k_points_gruzmash+1;
+    k_points_motoz:=k_points_motoz+1;
   end;
 end;
 
 procedure k_points_speed (speed: extended); // в м/с
 begin
-  if (speed>=5.55) then
+  if (speed>=0) and (speed<=2.22) then
+  begin
+    k_points_pesh:=k_points_pesh+1;
+    k_points_legkmash:=k_points_legkmash+1;
+    k_points_gruzmash:=k_points_gruzmash+1;
+    k_points_motoz:=k_points_motoz+1;
+  end;
+  if (speed>=2.22) and (speed<=33.33) then
   begin
     k_points_pesh:=k_points_pesh-1;
     k_points_legkmash:=k_points_legkmash+1;
+    k_points_gruzmash:=k_points_gruzmash+1;
+    k_points_motoz:=k_points_motoz+1;
+  end;
+  if (speed>=33.33) and (speed<=61.11) then
+  begin
+    k_points_pesh:=k_points_pesh-1;
+    k_points_legkmash:=k_points_legkmash+1;
+    k_points_gruzmash:=k_points_gruzmash-1;
+    k_points_motoz:=k_points_motoz+1;
+  end;
+  if (speed>=61.11) and (speed<=83.33) then
+  begin
+    k_points_pesh:=k_points_pesh-1;
+    k_points_legkmash:=k_points_legkmash-1;
+    k_points_gruzmash:=k_points_gruzmash-1;
+    k_points_motoz:=k_points_motoz+1;
   end;
 end;
 
@@ -81,8 +132,7 @@ var
   zone, a, b, e2, n, F, Lat0, Lon0, N0, E0, Lat, Lon,
     v, p, n2, M1, M2, M3, M4, M, I, II, III, IIIA, IV, VV, VI:extended;
 begin
-  {  Номер зоны Гаусса-Крюгера (если точка рассматривается в системе
-     координат соседней зоны, то номер зоны следует присвоить вручную)  }
+  {  Номер зоны Гаусса-Крюгера  }
   zone := round(dLon/6.0+1);
   {  Параметры эллипсоида Красовского  }
   a := 6378245.0;                   // Большая (экваториальная) полуось
@@ -124,8 +174,7 @@ var
   zone, a, b, e2, n, F, Lat0, Lon0, N0, E0, Lat, Lon,
     v, p, n2, M1, M2, M3, M4, M, I, II, III, IIIA, IV, VV, VI:extended;
 begin
-  { Номер зоны Гаусса-Крюгера (если точка рассматривается в системе
-    координат соседней зоны, то номер зоны следует присвоить вручную)  }
+  { Номер зоны Гаусса-Крюгера  }
   zone:= round(dLon/6.0+1);
   {  Параметры эллипсоида Красовского  }
   a:= 6378245.0;                      // Большая (экваториальная) полуось
@@ -186,8 +235,8 @@ begin
     y_new:=preobr_dolg(shir, dolg);
     time_new:=time;
 
-    points_angle(angle(x_old2, x_old, x_new, y_old2, y_old, y_new));
-    k_points_angle(angle(x_old2, x_old, x_new, y_old2, y_old, y_new));
+    points_angle(angle(x_old2, x_old, x_new, y_old2, y_old, y_new)/(time_new-time_old));
+    k_points_angle(angle(x_old2, x_old, x_new, y_old2, y_old, y_new)/(time_new-time_old));
     points_speed(speed(x_old, y_old, time_old, x_new, y_new, time_new));
     k_points_speed(speed(x_old, y_old, time_old, x_new, y_new, time_new));
     {k_points_map(map(x_new, y_new));}
@@ -199,10 +248,19 @@ begin
     time_old:=time_new;
   end;
 
+  sum_points_pesh:=points_pesh+max(0,k_points_pesh);
+  sum_points_legkmash:=points_legkmash+max(0,k_points_legkmash);
+  sum_points_gruzmash:=points_gruzmash+max(0,k_points_gruzmash);
+  sum_points_motoz:=points_motoz+max(0,k_points_motoz);
+
   writeln (output, 'Вероятность того, что это пешеход, равна: ',
-    (points_pesh+max(0,3*k_points_pesh))/(points_pesh+max(0,3*k_points_pesh)+points_legkmash+max(0,3*k_points_legkmash))*100:0:6, '%.');
+    sum_points_pesh/(sum_points_pesh+sum_points_legkmash+sum_points_gruzmash+sum_points_motoz)*100:0:6, '%.');
   writeln (output, 'Вероятность того, что это легковая машина, равна: ',
-    (points_legkmash+max(0,3*k_points_legkmash))/(points_pesh+max(0,3*k_points_pesh)+points_legkmash+max(0,3*k_points_legkmash))*100:0:6, '%.');
+    sum_points_legkmash/(sum_points_pesh+sum_points_legkmash+sum_points_gruzmash+sum_points_motoz)*100:0:6, '%.');
+  writeln (output, 'Вероятность того, что это грузовая машина, равна: ',
+    sum_points_gruzmash/(sum_points_pesh+sum_points_legkmash+sum_points_gruzmash+sum_points_motoz)*100:0:6, '%.');
+  writeln (output, 'Вероятность того, что это мотоцикл, равна: ',
+    sum_points_motoz/(sum_points_pesh+sum_points_legkmash+sum_points_gruzmash+sum_points_motoz)*100:0:6, '%.');
 
   close (input);
   close (output);

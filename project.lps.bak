@@ -9,8 +9,8 @@
         <Filename Value="project.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="169"/>
-        <CursorPos X="38" Y="177"/>
+        <TopLine Value="183"/>
+        <CursorPos Y="189"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -18,24 +18,15 @@
     <JumpHistory HistoryIndex="-1"/>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="1">
-      <Item1>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="project.pas"/>
-        <Line Value="185"/>
-      </Item1>
-    </BreakPoints>
     <Watches Count="3">
       <Item1>
-        <Expression Value="time_old"/>
+        <Expression Value="s"/>
       </Item1>
       <Item2>
-        <Expression Value="time_new"/>
+        <Expression Value="t2-t1"/>
       </Item2>
       <Item3>
-        <Expression Value="time_old2"/>
+        <Expression Value="result*180/3.14"/>
       </Item3>
     </Watches>
   </Debugging>

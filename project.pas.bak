@@ -24,7 +24,6 @@ var
   s: extended;
 begin
   s:=sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
-  writeln (t2-t1:0:6);
   result:=s/(t2-t1);
 end;
 
@@ -176,6 +175,10 @@ begin
   x_old:=preobr_shir(shir, dolg);
   y_old:=preobr_dolg(shir, dolg);
   time_old:=time;
+
+  points_speed(speed(x_old2, y_old2, time_old2, x_old, y_old, time_old));
+  k_points_speed(speed(x_old2, y_old2, time_old2, x_old, y_old, time_old));
+
   while (not eof(input)) do
   begin
     read (shir, dolg, time);
@@ -193,6 +196,7 @@ begin
     y_old2:=y_old;
     x_old:=x_new;
     y_old:=y_new;
+    time_old:=time_new;
   end;
 
   writeln (output, 'Вероятность того, что это пешеход, равна: ',
